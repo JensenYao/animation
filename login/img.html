@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="batch">
+        <ul class="group_01">
+        <li>
+        <img src="img/part1-01.png"/>
+        <span class="entitled">柏奈儿系列1</span>
+        </li>
+        <li>
+        <img src="img/part1-02.png"/>
+        <span class="entitled">柏奈儿系列2</span>
+        </li>
+        <li>
+        <img src="img/part1-03.png" />
+        <span class="entitled">柏奈儿系列3</span>
+        </li>
+        <li>
+        <img src="img/part1-03.png"/>
+        <span class="entitled">柏奈儿系列4</span>
+        </li>
+        <li>
+        <img src="img/part1-05.png"/>
+        <span class="entitled">柏奈儿系列5</span>
+        </li>
+        </ul>
+        </div>
+        
+        <div class="popup"></div>
+        <div class="show">
+        <img class="big" src="images/index/bnl_01.jpg"/>
+        <img class="left" src="images/index/left.png"/>
+        <img class="right" src="images/index/right.png"/>
+        <span class="close">关闭</span>
+        </div>
+        
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript">
+        jQuery(document).ready(function(){
+        var bigImg='';
+        var _index=0;
+        var _ul=0;
+        $(".popup").click(function(){
+        $(".show").fadeOut();
+        $(this).hide();
+        });
+        $(".close").click(function(){
+        $(".show").fadeOut();
+        $(".popup").hide();
+        }) 
+        $(".batch ul li img").click(function(){
+        $(".popup").show();
+        $(".show").fadeIn(500);
+        bigImg=$(this).attr("src");//获取点击图片的地址
+        //alert(bigImg);
+        $(".show img.big").attr("src",bigImg); //更换大图的图片地址
+        _index=$(this).index();//保存图片的序列号
+        //alert(_index);
+        });
+        $(".right").click(function(){
+        if(_index<$(".batch ul li img").length-1){
+        _index++; //序列号加1 _index+1
+        }else{
+        _index=0
+        }
+        document.title=_index; 
+        bigImg=$(".batch ul li img").eq(_index).attr("src");
+        $(".show img.big").attr("src",bigImg);
+        });
+        $(".left").click(function(){
+        if(_index>0){
+        _index--; //序列号减- _index-1 
+        }else{
+        _index=$(".batch ul li img").length;
+        }
+        document.title=_index;
+        bigImg=$(".batch ul li img").eq(_index).attr("src");
+        $(".show img.big").attr("src",bigImg);
+        });
+        })
+        </script>
+</body>
+</html>
