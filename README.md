@@ -1,40 +1,12 @@
 <h1>漂亮实用的动画效果</h1>
-<p>边框hover样式，灰常炫酷</p>
-    <h1>rem单位，javascrip自动获取窗口大小代码</h1>
-        /*最好把响应式JS代码写成单独的JS文件*/
-        (function(){
-            var recalc=function(){
-                var design=750;//设计稿尺寸
-                var maxSize=414;//最宽screen(目前使用iPhone 6 Plus)
-                var cent=design/100;//100px参照，方便计算rem值
-                var docEle=document.documentElement;
-                var pageWidth=docEle.clientWidth;
-                var dpr=window.devicePixelRatio||2;//设备像素比，普遍是2
-                if(pageWidth/dpr<design){pageWidth=design*dpr;}
-                var scale=1/dpr;
-                var fontSize=100*(pageWidth/design);//html节点的font-size
-                //docEle.dataset.dpr=dpr;
-                if(window.screen.width>maxSize){scale=1;fontSize=100;}//最宽screen处理，默认就显示这么宽，你还可处理跳转到对应的电脑版网页
-                var viewportContent='initial-scale='+scale+',minimum-scale='+scale+',maximum-scale='+scale+',user-scalable=no';
-                var viewport=document.querySelector('meta[name="viewport"]');
-                if(viewport){
-                    viewport.setAttribute('content',viewportContent);
-                }else{
-                    var eleMeta=document.createElement('meta');
-                        eleMeta.name='viewport';
-                        eleMeta.content=viewportContent;
-                    docEle.firstElementChild.appendChild(eleMeta);
-                }
-                docEle.style.fontSize=fontSize+'px';
-                if(document.readyState=='complete'){
-                    document.body.style.maxWidth=cent+'rem';
-                }else{
-                    document.addEventListener('DOMContentLoaded',function(){document.body.style.maxWidth=cent+'rem';},false);
-                };
-            };
-            //初始化
-            recalc();
-            //屏幕改变时
-            resizeEvt='orientationchange' in window?'orientationchange':'resize';
-            window.addEventListener(resizeEvt,recalc,false);
-        }());
+    <p>边框hover样式，灰常炫酷</p>
+<h1>rem单位，javascrip自动获取窗口大小代码</h1>
+    <p>CSS3新增了一个相对单位rem（root em，根em），这个单位引起了广泛关注。这个单位与em有什么区别呢？区别在于使用rem为元素设定字体大小时，仍然是相对大小，但相对的只是HTML 根元素。这个单位可谓集相对大小和绝对大小的优点于一身，通过它既可以做到只修改根元素就成比例地调整所有字体大小，又可以避免字体大小逐层复合的连锁反 应。目前，除了IE8及更早版本外，所有浏览器均已支持rem。对于不支持它的浏览器，应对方法也很简单，就是多写一个绝对单位的声明。这些浏览器会忽略 用rem设定的字体大小。</p>
+<h1>canvas 画布 首页展示泡泡图</h1>
+    <p><canvas></canvas>是HTML5中新增的标签，用于绘制图形，实际上，这个标签和其他的标签一样，其特殊之处在于该标签可以获取一个CanvasRenderingContext2D对象，我们可以通过JavaScript脚本来控制该对象进行绘图。
+    <canvas></canvas>只是一个绘制图形的容器，除了id、class、style等属性外，还有height和width属性。在<canvas>>元素上绘图主要有三步：</p>
+    <ul>
+        <li>获取<canvas>元素对应的DOM对象，这是一个Canvas对象；</li>
+        <li>调用Canvas对象的getContext()方法，得到一个CanvasRenderingContext2D对象；</li>
+        <li>调用CanvasRenderingContext2D对象进行绘图。</li>
+    </ul>
