@@ -1,7 +1,6 @@
 <h1>漂亮实用的动画效果</h1>
 <p>边框hover样式，灰常炫酷</p>
     <h1>rem单位，javascrip自动获取窗口大小代码</h1>
-    <script>
         /*最好把响应式JS代码写成单独的JS文件*/
         (function(){
             var recalc=function(){
@@ -39,4 +38,3 @@
             resizeEvt='orientationchange' in window?'orientationchange':'resize';
             window.addEventListener(resizeEvt,recalc,false);
         }());
-    </script>
