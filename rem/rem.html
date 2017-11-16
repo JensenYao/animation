@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>·
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #h1{
+            font-size: 1rem;
+        }
+        p{
+            font-size: 2rem;
+        }
+        span{
+            font-size: 3rem;
+        }
+        em{
+            font-size: 1rem;
+        }
+        i{
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="h1">我是h1标签</h1>
+    <p>我是p标签</p>
+    <span>我是span标签</span>
+    <em>我是em标签</em>
+    <i>我是i标签</i>
+</body>
+<script>
+    (function(doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+                var clientWidth = docEl.clientWidth;
+                if(!clientWidth) return;
+                docEl.style.fontSize = 16 * (clientWidth / 640) + 'px';
+            };
+        if(!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+</html>
