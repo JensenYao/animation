@@ -1,0 +1,11 @@
+<view class="container toTop">
+  <view class="wrap">
+    <view class="circle-box">
+      <canvas class="circle" style="width:100px; height:100px;" canvas-id="canvasArcCir">
+      </canvas>
+      <canvas class="circle" style="z-index: -5; width:100px; height:100px;" canvas-id="canvasCircle">
+      </canvas>
+      <view class="draw_btn" bindtap="drawCircle">{{second}}</view>
+    </view>
+  </view>
+</view>
