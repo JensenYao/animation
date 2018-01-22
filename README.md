@@ -12,3 +12,4 @@
     </ul>
 <h1>time  小程序圆心进度条倒计时</h1>
     <p>利用canvas 动画动态绘画进度条</p>
+    <img src='./login/img/1.jpg' />
