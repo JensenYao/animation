@@ -10,3 +10,5 @@
         <li>调用Canvas对象的getContext()方法，得到一个CanvasRenderingContext2D对象；</li>
         <li>调用CanvasRenderingContext2D对象进行绘图。</li>
     </ul>
+<h1>time  小程序圆心进度条倒计时</h1>
+    <p>利用canvas 动画动态绘画进度条</p>
